@@ -20,7 +20,7 @@ mongoose.connect('mongodb+srv://andres:DorianElGris@cluster0.8uz6w.mongodb.net/t
 
 
 //importing routes
-const indexRoutes = require('./routes/index')
+const indexRoutes = require('./routes/rutas')
 
 //settings
 app.set('port', process.env || 3000)
