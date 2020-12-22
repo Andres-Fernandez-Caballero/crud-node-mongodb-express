@@ -1,6 +1,6 @@
 {
   "name": "crud_express",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "un servidor con node y express",
   "main": "index.js",
   "scripts": {

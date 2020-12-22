@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const app = express()
 const mongoose = require('mongoose')
 
-const port = 3000
+const port = process.env.PORT || 5000
 
 //conexion a base de datos
 /***  conexion a local***/
@@ -23,7 +23,7 @@ mongoose.connect('mongodb+srv://andres:DorianElGris@cluster0.8uz6w.mongodb.net/t
 const indexRoutes = require('./routes/rutas')
 
 //settings
-app.set('port', process.env || 3000)
+app.set('port', )
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
