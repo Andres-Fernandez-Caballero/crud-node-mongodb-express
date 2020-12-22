@@ -1,0 +1,60 @@
+<%- include ('partials/header') -%>
+    <!--
+    <pre>
+        <%= tasks %> 
+    </pre>
+    -->
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/" class="navbar-brand">Crud nodemonbo</a>
+    </nav>
+    <div class="container m-2">
+        <div class="row">
+            <!-- FORM-->
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="title" placeholder="insert a Title" class="form-control"> 
+                            </div>
+                            <div class="form-group">
+                                <textarea name="description" cols="80" class="form-control" placeholder="insert a description"></textarea>
+                            </div>
+                            <div class="form-group d-grid gap-2">
+                                <button type="submit" class="btn btn-primary ">Add</button>
+                            </div>
+                            
+                        </form> 
+                    </div>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var task of tasks) { %>
+                            <tr>
+                               <td><%= task.title %></td>
+                               <td><%= task.description %></td>
+                               <td>
+                                   <a href="/turn-state/<%= task.id %>" 
+                                    class="btn <%= task.status ? 'btn-success' : 'btn-warning' %> "><%= task.status ? 'Realizado' : 'Pendiente'%></a>
+                                   <a href="/edit/<%= task.id %> " class="btn btn-secondary">Edit</a>
+                                   <a href="/delete/<%= task.id %>" class="btn btn-danger">Remove</a>
+                               </td>  
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<%- include ('partials/footer') -%>
