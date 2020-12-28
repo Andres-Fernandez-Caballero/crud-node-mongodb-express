@@ -22,9 +22,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/crud-mongo')
 andres, DorianElGris
  */
 
-const db_name = process.env.DB_USERNAME
-const db_password = process.env.DB_PASSWORD
-const db_database = process.env.DB_DATABASE
+const db_name = process.env.DB_USERNAME || 'andres'
+const db_password = process.env.DB_PASSWORD || 'DorianElGris'
+const db_database = process.env.DB_DATABASE || 'MEDIDAS_MAU'
 
 
 mongoose.connect('mongodb+srv://'
