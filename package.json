@@ -1,17 +1,18 @@
 {
-  "name": "crud_express",
-  "version": "1.0.2",
-  "description": "un servidor con node y express",
+  "name": "medidas_mau",
+  "version": "1.1.0",
+  "description": "una aplicacion para llevar el registro de mau",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js", 
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Andres",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "mongoose": "^5.11.8",

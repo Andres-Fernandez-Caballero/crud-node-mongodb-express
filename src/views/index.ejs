@@ -1,28 +1,32 @@
 <%- include ('partials/header') -%>
-    <!--
-    <pre>
-        <%= tasks %> 
-    </pre>
-    -->
 
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="/" class="navbar-brand">Crud nodemonbo</a>
+    <nav class="navbar navbar-dark" style="background-color: #448AFF">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand">Medidas Mau<span><img src="img/gato.svg" width="30" alt="un gatito blanco"></span></a>
+        </div>
+
     </nav>
-    <div class="container m-2">
+    <div class="container">
         <div class="row">
             <!-- FORM-->
-            <div class="col-md-5">
-                <div class="card">
+            <div class="col-md-4">
+                <div class="card m-3">
                     <div class="card-body">
                         <form action="/add" method="POST">
-                            <div class="form-group">
-                                <input type="text" name="title" placeholder="insert a Title" class="form-control"> 
+                            <div class="form-group m-2">
+                                <label for="peso">Peso (Kg)</label>
+                                <input type="text" name="peso" placeholder="peso en kg" class="form-control" required>
                             </div>
-                            <div class="form-group">
-                                <textarea name="description" cols="80" class="form-control" placeholder="insert a description"></textarea>
+                            <div class="form-group m-2">
+                                <label for="cintura">Cintura (Cm)</label>
+                                <input type="number" name="cintura" placeholder="medida en cm" class="form-control" required>
+                            </div>
+                            <div class="form-group m-2">
+                                <label for="bientre">Vientre (Cm)</label>
+                                <input type="number" name="vientre" placeholder="medida en cm" class="form-control" required>
                             </div>
                             <div class="form-group d-grid gap-2">
-                                <button type="submit" class="btn btn-primary ">Add</button>
+                                <button type="submit" class="btn btn-primary ">Agregar</button>
                             </div>
                             
                         </form> 
@@ -30,30 +34,39 @@
                 </div>
             </div>
             <!-- LIST -->
-            <div class="col-md-7">
-                <table class="table table-bordered table-hover">
-                    <thead>
+            <div class="col-md-8 my-3">
+                <div class="card">
+                    <table class="table table-hover">
+                        <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Operations</th>
+                            <th scope="col">Peso</th>
+                            <th scope="col">Cintura</th>
+                            <th scope="col">Vientre</th>
+                            <th scope="col" class="text-center">Opciones</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <% for(var task of tasks) { %>
+                        </thead>
+                        <tbody>
+                        <% for(var medicion of mediciones) { %>
                             <tr>
-                               <td><%= task.title %></td>
-                               <td><%= task.description %></td>
-                               <td>
-                                   <a href="/turn-state/<%= task.id %>" 
-                                    class="btn <%= task.status ? 'btn-success' : 'btn-warning' %> "><%= task.status ? 'Realizado' : 'Pendiente'%></a>
-                                   <a href="/edit/<%= task.id %> " class="btn btn-secondary">Edit</a>
-                                   <a href="/delete/<%= task.id %>" class="btn btn-danger">Remove</a>
-                               </td>  
+
+                                <td><%= medicion.peso %> kg</td>
+                                <td><%= medicion.cintura %> Cm</td>
+                                <td><%= medicion.vientre %> Cm</td>
+                                <td class="p-2 d-flex justify-content-center">
+                                    <a class="btn btn-outline-info mx-2"
+                                       href="/edit/<%= medicion.id %>">
+                                        Editar
+                                    </a>
+                                    <a class="btn btn-outline-danger mx-2"
+                                       href="/delete/<%= medicion.id %>">
+                                        Borrar
+                                    </a>
+                                </td>
                             </tr>
                         <% } %>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
