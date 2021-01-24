@@ -5,9 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 
 // defino env
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config()
-}
+require('dotenv').config()
 
 
 const port = process.env.PORT || 5000
