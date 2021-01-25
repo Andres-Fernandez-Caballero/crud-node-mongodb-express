@@ -55,6 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRoutes)
 
 app.listen(port, () =>{
+    console.log(process.env.APP_NAME)
     console.log('conectado al puerto %d', port)
     console.log('database ' + database)
 })

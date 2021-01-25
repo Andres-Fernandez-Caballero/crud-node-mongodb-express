@@ -1,0 +1,42 @@
+<%- include ('partials/header') -%>
+
+<nav class="navbar navbar-dark" style="background-color: #448AFF">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brand">Medidas <%= process.env.APP_NAME  %> <span><img src= <%= (process.env.APP_NAME == 'Mau')? "../img/gato.svg": "../img/rule.svg"%>   width="30" alt="icono institucional"></span></a>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <section class="d-flex justify-content-center">
+        <article class="col-md-4"> 
+            <div class="card m-3">
+                <div class="card-body">
+                    <form action="/edit/<%= medicion.id %> " method="POST">
+                        <div class="form-group m-2">
+                            <label for="peso">Peso (Kg)</label>
+                            <input type="text" name="peso" placeholder="peso en kg" class="form-control" required
+                            value="<%= medicion.peso %>">
+                        </div>
+                        <div class="form-group m-2">
+                            <label for="cintura">Cintura (Cm)</label>
+                            <input type="number" name="cintura" placeholder="medida en cm" class="form-control" required
+                            value="<%= medicion.cintura %>">
+                        </div>
+                        <div class="form-group m-2">
+                            <label for="bientre">Vientre (Cm)</label>
+                            <input type="number" name="vientre" placeholder="medida en cm" class="form-control" required
+                            value="<%= medicion.vientre %>">
+                        </div>
+                        <div class="form-group d-grid gap-2">
+                            <button type="submit" class="btn btn-primary ">Agregar</button>
+                        </div>
+                        
+                    </form> 
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
+
+
+<%- include ('partials/footer') -%>

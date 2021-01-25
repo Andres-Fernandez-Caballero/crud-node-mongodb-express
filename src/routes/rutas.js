@@ -36,7 +36,7 @@ router.get('/turn-state/:id', async (req, res) => {
 router.get('/edit/:id', async(req, res) => {
     const { id } = req.params
     const medicion = await Medicion.findById(id)
-    res.render('edit_task',{medicion})
+    res.render('edit_peso',{medicion})
 })
 
 router.post('/edit/:id', async(req, res) => {
